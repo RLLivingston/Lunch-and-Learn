@@ -4,7 +4,7 @@ namespace Day2
 {
     public class AdvancedKeypad
     {
-        private char[,] _keypad =
+        private readonly char[,] _keypad =
         {
             { ' ', ' ', '1', ' ', ' ' },
             { ' ', '2', '3', '4', ' ' },
@@ -70,7 +70,7 @@ namespace Day2
         {
             var temp_row = _row + 1;
 
-            if (temp_row > 2)
+            if (temp_row > 4 || _keypad[temp_row, _col] == ' ')
             {
                 return;
             }
@@ -82,7 +82,7 @@ namespace Day2
         {
             var temp_col = _col - 1;
 
-            if (temp_col < 0)
+            if (temp_col < 0 || _keypad[_row, temp_col] == ' ')
             {
                 return;
             }
@@ -94,7 +94,7 @@ namespace Day2
         {
             var temp_col = _col + 1;
 
-            if (temp_col > 2)
+            if (temp_col > 4 || _keypad[_row,temp_col] == ' ')
             {
                 return;
             }
